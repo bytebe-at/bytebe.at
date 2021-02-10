@@ -3,7 +3,8 @@ name: bytebe.at Production.
 on:
   push:
     branches:
-      - master
+      - "**"
+      - "!master"
 
 jobs:
   vc-deploy:
@@ -14,7 +15,5 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }
-          vercel-args: "--prod"
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
-          working-directory: ./
